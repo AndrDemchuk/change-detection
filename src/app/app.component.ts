@@ -10,7 +10,14 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject } from '@
 export class AppComponent {
   counter = 0;
 
-  readonly changeDetector = inject(ChangeDetectorRef);
+  /*   readonly changeDetector = inject(ChangeDetectorRef);
+   */
+
+  calculateValue() {
+    console.log('Calculating value');
+
+    return 42;
+  }
 
   doNothing() {
 
@@ -22,9 +29,12 @@ export class AppComponent {
       console.log('Counter', this.counter);
     }, 3000);
 
-    setInterval(() => {
-      this.changeDetector.detectChanges();
-    }, 5000);
+    /*     setInterval(() => {
+          this.changeDetector.detectChanges();
+          //also inputs, outputs and events`s gonna trigger 
+          // the change detection while having onPush
+        }, 5000); */
   }
+
 
 }
